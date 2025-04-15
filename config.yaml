@@ -99,6 +99,7 @@ params:
   # (Optional, experimental, default false) Enables service worker that caches visited pages and resources for offline use.
   BookServiceWorker: true
 
+# 更新后的分页配置
 pagination:
   pagerSize: 10
   path: "page"
