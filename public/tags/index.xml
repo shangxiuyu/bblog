@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Su He&#39;s Blog</title>
+    <link>http://localhost:1313/bblog/tags/</link>
+    <description>Recent content in Tags on Su He&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 24 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/bblog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Golang</title>
+      <link>http://localhost:1313/bblog/tags/golang/</link>
+      <pubDate>Sun, 24 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bblog/tags/golang/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>并发</title>
+      <link>http://localhost:1313/bblog/tags/%E5%B9%B6%E5%8F%91/</link>
+      <pubDate>Sun, 24 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bblog/tags/%E5%B9%B6%E5%8F%91/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>技术</title>
+      <link>http://localhost:1313/bblog/tags/%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Sun, 24 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bblog/tags/%E6%8A%80%E6%9C%AF/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>咖啡</title>
+      <link>http://localhost:1313/bblog/tags/%E5%92%96%E5%95%A1/</link>
+      <pubDate>Sat, 23 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bblog/tags/%E5%92%96%E5%95%A1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>生活</title>
+      <link>http://localhost:1313/bblog/tags/%E7%94%9F%E6%B4%BB/</link>
+      <pubDate>Sat, 23 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bblog/tags/%E7%94%9F%E6%B4%BB/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>随笔</title>
+      <link>http://localhost:1313/bblog/tags/%E9%9A%8F%E7%AC%94/</link>
+      <pubDate>Sat, 23 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bblog/tags/%E9%9A%8F%E7%AC%94/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>习惯养成</title>
+      <link>http://localhost:1313/bblog/tags/%E4%B9%A0%E6%83%AF%E5%85%BB%E6%88%90/</link>
+      <pubDate>Fri, 22 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bblog/tags/%E4%B9%A0%E6%83%AF%E5%85%BB%E6%88%90/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>自我提升</title>
+      <link>http://localhost:1313/bblog/tags/%E8%87%AA%E6%88%91%E6%8F%90%E5%8D%87/</link>
+      <pubDate>Fri, 22 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bblog/tags/%E8%87%AA%E6%88%91%E6%8F%90%E5%8D%87/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>读书笔记</title>
+      <link>http://localhost:1313/bblog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Fri, 22 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bblog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>代码质量</title>
+      <link>http://localhost:1313/bblog/tags/%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F/</link>
+      <pubDate>Thu, 21 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bblog/tags/%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>最佳实践</title>
+      <link>http://localhost:1313/bblog/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Thu, 21 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bblog/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>编程</title>
+      <link>http://localhost:1313/bblog/tags/%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Thu, 21 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bblog/tags/%E7%BC%96%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>旅行</title>
+      <link>http://localhost:1313/bblog/tags/%E6%97%85%E8%A1%8C/</link>
+      <pubDate>Wed, 20 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bblog/tags/%E6%97%85%E8%A1%8C/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>杭州</title>
+      <link>http://localhost:1313/bblog/tags/%E6%9D%AD%E5%B7%9E/</link>
+      <pubDate>Wed, 20 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bblog/tags/%E6%9D%AD%E5%B7%9E/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>游记</title>
+      <link>http://localhost:1313/bblog/tags/%E6%B8%B8%E8%AE%B0/</link>
+      <pubDate>Wed, 20 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bblog/tags/%E6%B8%B8%E8%AE%B0/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>时间管理</title>
+      <link>http://localhost:1313/bblog/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Tue, 19 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bblog/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>生活感悟</title>
+      <link>http://localhost:1313/bblog/tags/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/</link>
+      <pubDate>Tue, 19 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bblog/tags/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>随想</title>
+      <link>http://localhost:1313/bblog/tags/%E9%9A%8F%E6%83%B3/</link>
+      <pubDate>Tue, 19 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bblog/tags/%E9%9A%8F%E6%83%B3/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

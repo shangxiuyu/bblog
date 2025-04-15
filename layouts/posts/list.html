@@ -1,0 +1,56 @@
+{{ define "main" }}
+<article class="markdown">
+  {{- .Content -}}
+  
+  {{ range .Pages.ByDate.Reverse }}
+  <div class="book-post">
+    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    <div class="post-meta">
+      <span class="post-date">{{ .Date.Format "2006-01-02" }}</span>
+      {{ with .Params.tags }}
+      <span class="post-tags">
+        {{ range . }}
+        <a href="/tags/{{ . | urlize }}" class="tag">{{ . }}</a>
+        {{ end }}
+      </span>
+      {{ end }}
+    </div>
+    <div class="post-summary">
+      {{ .Summary }}
+    </div>
+  </div>
+  {{ end }}
+</article>
+
+<style>
+.book-post {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+.post-meta {
+  font-size: 0.9em;
+  color: #666;
+  margin: 0.5rem 0;
+}
+.post-date {
+  margin-right: 1rem;
+}
+.post-tags .tag {
+  background: #f0f0f0;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-right: 0.5rem;
+  font-size: 0.8em;
+  text-decoration: none;
+  color: #666;
+}
+.post-tags .tag:hover {
+  background: #e0e0e0;
+}
+.post-summary {
+  color: #444;
+  line-height: 1.6;
+}
+</style>
+{{ end }} 

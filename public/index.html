@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta name="generator" content="Hugo 0.146.2"><script src="/bblog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=bblog/livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  欢迎来到苏河鸭的博客
+  #
+
+这里是我记录生活、技术和思考的地方。
+
+  最新文章
+  #
+
+
+
+* [Go语言中的并发编程实践](/bblog/posts/tech-golang/) - 2024-03-24
+
+* [欢迎来到苏河鸭的博客](/bblog/posts/welcome/) - 2024-03-24
+
+* [我与咖啡的日常](/bblog/posts/life-coffee/) - 2024-03-23
+
+* [《原子习惯》读书笔记](/bblog/posts/book-review/) - 2024-03-22
+
+* [5个提高代码质量的实用技巧](/bblog/posts/coding-tips/) - 2024-03-21
+ 
+
+  关于我
+  #
+
+我是苏河鸭，一个热爱技术和写作的开发者。在这里，我会分享：
+
+📚 技术学习笔记
+☕️ 生活随想
+🎨 创意想法
+📝 读书心得
+
+
+  标签云
+  #
+
+
+
+
+  
+  
+    golang(1)
+    
+  
+
+  
+  
+    习惯养成(1)
+    
+  
+
+  
+  
+    代码质量(1)
+    
+  
+
+  
+  
+    咖啡(1)
+    
+  
+
+  
+  
+    并发(1)
+    
+  
+
+  
+  
+    技术(1)
+    
+  
+
+  
+  
+    旅行(1)
+    
+  
+
+  
+  
+    时间管理(1)
+    
+  
+
+  
+  
+    最佳实践(1)
+    
+  
+
+  
+  
+    杭州(1)
+    
+  
+
+  
+  
+    游记(1)
+    
+  
+
+  
+  
+    生活(1)
+    
+  
+
+  
+  
+    生活感悟(1)
+    
+  
+
+  
+  
+    编程(1)
+    
+  
+
+  
+  
+    自我提升(1)
+    
+  
+
+  
+  
+    读书笔记(1)
+    
+  
+
+  
+  
+    随想(1)
+    
+  
+
+  
+  
+    随笔(1)
+    
+  
+
+
+
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/bblog/">
+  <meta property="og:site_name" content="Su He&#39;s Blog">
+  <meta property="og:title" content="首页">
+  <meta property="og:description" content="欢迎来到苏河鸭的博客 # 这里是我记录生活、技术和思考的地方。
+最新文章 # * [Go语言中的并发编程实践](/bblog/posts/tech-golang/) - 2024-03-24 * [欢迎来到苏河鸭的博客](/bblog/posts/welcome/) - 2024-03-24 * [我与咖啡的日常](/bblog/posts/life-coffee/) - 2024-03-23 * [《原子习惯》读书笔记](/bblog/posts/book-review/) - 2024-03-22 * [5个提高代码质量的实用技巧](/bblog/posts/coding-tips/) - 2024-03-21 关于我 # 我是苏河鸭，一个热爱技术和写作的开发者。在这里，我会分享：
+📚 技术学习笔记 ☕️ 生活随想 🎨 创意想法 📝 读书心得 标签云 # golang(1) 习惯养成(1) 代码质量(1) 咖啡(1) 并发(1) 技术(1) 旅行(1) 时间管理(1) 最佳实践(1) 杭州(1) 游记(1) 生活(1) 生活感悟(1) 编程(1) 自我提升(1) 读书笔记(1) 随想(1) 随笔(1)">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+<title>首页 | Su He&#39;s Blog</title>
+<link rel="icon" href="/bblog/favicon.png" >
+<link rel="manifest" href="/bblog/manifest.json">
+<link rel="canonical" href="http://localhost:1313/bblog/">
+<link rel="stylesheet" href="/bblog/book.min.a7616cf2799b58bddffce9438e31fdbfc6393687cfc0950a4a17cd1cce7e35f6.css" integrity="sha256-p2Fs8nmbWL3f/OlDjjH9v8Y5NofPwJUKShfNHM5&#43;NfY=" crossorigin="anonymous">
+  <script defer src="/bblog/fuse.min.js"></script>
+  <script defer src="/bblog/en.search.min.c68d7ca62f64b43b093d71bdcabf7c3fdb9daba6c91eb38db1faff08f24718c7.js" integrity="sha256-xo18pi9ktDsJPXG9yr98P9udq6bJHrONsfr/CPJHGMc=" crossorigin="anonymous"></script>
+
+  <script defer src="/bblog/sw.min.0b093fe0bf89a01cfbb33eb3268c13d7dbff714cf6367955319b9d3893da136d.js" integrity="sha256-Cwk/4L&#43;JoBz7sz6zJowT19v/cUz2NnlVMZudOJPaE20=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/bblog/index.xml" title="Su He's Blog" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/bblog/"><span>Su He&#39;s Blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/suhe"  target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://themes.gohugo.io/hugo-book/"  target="_blank" rel="noopener">
+        Hugo Themes
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/bblog/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>首页</h3>
+
+  <label for="toc-control">
+    
+  </label>
+</div>
+
+
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="欢迎来到苏河鸭的博客">
+  欢迎来到苏河鸭的博客
+  <a class="anchor" href="#%e6%ac%a2%e8%bf%8e%e6%9d%a5%e5%88%b0%e8%8b%8f%e6%b2%b3%e9%b8%ad%e7%9a%84%e5%8d%9a%e5%ae%a2">#</a>
+</h1>
+<p>这里是我记录生活、技术和思考的地方。</p>
+<h2 id="最新文章">
+  最新文章
+  <a class="anchor" href="#%e6%9c%80%e6%96%b0%e6%96%87%e7%ab%a0">#</a>
+</h2>
+
+
+* [Go语言中的并发编程实践](/bblog/posts/tech-golang/) - 2024-03-24
+
+* [欢迎来到苏河鸭的博客](/bblog/posts/welcome/) - 2024-03-24
+
+* [我与咖啡的日常](/bblog/posts/life-coffee/) - 2024-03-23
+
+* [《原子习惯》读书笔记](/bblog/posts/book-review/) - 2024-03-22
+
+* [5个提高代码质量的实用技巧](/bblog/posts/coding-tips/) - 2024-03-21
+ 
+<h2 id="关于我">
+  关于我
+  <a class="anchor" href="#%e5%85%b3%e4%ba%8e%e6%88%91">#</a>
+</h2>
+<p>我是苏河鸭，一个热爱技术和写作的开发者。在这里，我会分享：</p>
+<ul>
+<li>📚 技术学习笔记</li>
+<li>☕️ 生活随想</li>
+<li>🎨 创意想法</li>
+<li>📝 读书心得</li>
+</ul>
+<h2 id="标签云">
+  标签云
+  <a class="anchor" href="#%e6%a0%87%e7%ad%be%e4%ba%91">#</a>
+</h2>
+
+<div class="tags">
+
+  
+  
+    <a href="/bblog/tags/golang/" class="tag" style="font-size: 100%">golang<span class="tag-count">(1)</span>
+    </a>
+  
+
+  
+  
+    <a href="/bblog/tags/%E4%B9%A0%E6%83%AF%E5%85%BB%E6%88%90/" class="tag" style="font-size: 100%">习惯养成<span class="tag-count">(1)</span>
+    </a>
+  
+
+  
+  
+    <a href="/bblog/tags/%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F/" class="tag" style="font-size: 100%">代码质量<span class="tag-count">(1)</span>
+    </a>
+  
+
+  
+  
+    <a href="/bblog/tags/%E5%92%96%E5%95%A1/" class="tag" style="font-size: 100%">咖啡<span class="tag-count">(1)</span>
+    </a>
+  
+
+  
+  
+    <a href="/bblog/tags/%E5%B9%B6%E5%8F%91/" class="tag" style="font-size: 100%">并发<span class="tag-count">(1)</span>
+    </a>
+  
+
+  
+  
+    <a href="/bblog/tags/%E6%8A%80%E6%9C%AF/" class="tag" style="font-size: 100%">技术<span class="tag-count">(1)</span>
+    </a>
+  
+
+  
+  
+    <a href="/bblog/tags/%E6%97%85%E8%A1%8C/" class="tag" style="font-size: 100%">旅行<span class="tag-count">(1)</span>
+    </a>
+  
+
+  
+  
+    <a href="/bblog/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/" class="tag" style="font-size: 100%">时间管理<span class="tag-count">(1)</span>
+    </a>
+  
+
+  
+  
+    <a href="/bblog/tags/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="tag" style="font-size: 100%">最佳实践<span class="tag-count">(1)</span>
+    </a>
+  
+
+  
+  
+    <a href="/bblog/tags/%E6%9D%AD%E5%B7%9E/" class="tag" style="font-size: 100%">杭州<span class="tag-count">(1)</span>
+    </a>
+  
+
+  
+  
+    <a href="/bblog/tags/%E6%B8%B8%E8%AE%B0/" class="tag" style="font-size: 100%">游记<span class="tag-count">(1)</span>
+    </a>
+  
+
+  
+  
+    <a href="/bblog/tags/%E7%94%9F%E6%B4%BB/" class="tag" style="font-size: 100%">生活<span class="tag-count">(1)</span>
+    </a>
+  
+
+  
+  
+    <a href="/bblog/tags/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/" class="tag" style="font-size: 100%">生活感悟<span class="tag-count">(1)</span>
+    </a>
+  
+
+  
+  
+    <a href="/bblog/tags/%E7%BC%96%E7%A8%8B/" class="tag" style="font-size: 100%">编程<span class="tag-count">(1)</span>
+    </a>
+  
+
+  
+  
+    <a href="/bblog/tags/%E8%87%AA%E6%88%91%E6%8F%90%E5%8D%87/" class="tag" style="font-size: 100%">自我提升<span class="tag-count">(1)</span>
+    </a>
+  
+
+  
+  
+    <a href="/bblog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="tag" style="font-size: 100%">读书笔记<span class="tag-count">(1)</span>
+    </a>
+  
+
+  
+  
+    <a href="/bblog/tags/%E9%9A%8F%E6%83%B3/" class="tag" style="font-size: 100%">随想<span class="tag-count">(1)</span>
+    </a>
+  
+
+  
+  
+    <a href="/bblog/tags/%E9%9A%8F%E7%AC%94/" class="tag" style="font-size: 100%">随笔<span class="tag-count">(1)</span>
+    </a>
+  
+
+</div>
+
+<style>
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.tag {
+  background: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 15px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s ease;
+}
+.tag:hover {
+  background: #e0e0e0;
+  transform: scale(1.05);
+}
+.tag-count {
+  font-size: 0.8em;
+  color: #666;
+}
+</style> 
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/suhe/bblog/edit/main/exampleSite/content/_index.md" target="_blank" rel="noopener">
+      <img src="/bblog/svg/edit.svg" class="book-icon" alt="" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
