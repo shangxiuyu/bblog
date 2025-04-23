@@ -27,8 +27,7 @@ llm：大语言模型（large language model）
 
 Transformer架构被在2017年的论文[《Attention Is All You Need》](https://arxiv.org/abs/1706.03762) 中首次提出。
 
-Transformer架构由两个子模块组成：编码器和解码器。[深度学习的核心架构与基本原理](https://waytoagi.feishu.cn/wiki/QnnKwxR0SihLKYk1EIKc1HXonnb)
-
+Transformer架构由两个子模块组成：编码器和解码器。
 - 编码器模块处理输入文本并将其编码成一系列数值表示或向量，这些向量捕获输入的上下文信息。（处理输入文本并生成文本的嵌入表示）
 - 解码器模块获取这些编码向量并生成输出文本。
 - 编码器和解码器都由许多层组成，这些层通过一种称为自注意力机制的方式连接。
@@ -36,6 +35,10 @@ Transformer架构由两个子模块组成：编码器和解码器。[深度学�
 Transformer的关键组成部分是自注意力机制，它允许模型对序列中不同单词或token的相对重要性进行加权。这种机制使模型能够捕获输入数据中的长距离依赖关系和上下文关系，从而增强其生成连贯且与上下文相关的输出的能力。
 
 BERT（Bidirectional Encoder Representations from Transformers 的缩写）和各种 GPT 模型（Generative Pre-trained Transformers 的缩写）都是Transformer架构的变体。
+
+推荐阅读：
+- [LLM可视化网站,Transformer推理机制](https://bbycroft.net/llm)
+- [深度学习的核心架构与基本原理](https://waytoagi.feishu.cn/wiki/QnnKwxR0SihLKYk1EIKc1HXonnb)
 
 ## 构建一个LLM
 
