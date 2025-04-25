@@ -98,6 +98,9 @@ Sentence 2 (🐈): [0.7, 0.3]
 Sentence 3 (💻): [-0.5, -0.9]
 在图表上，与猫相关的句子会聚集在右上方，而编程句子会位于左下方——直观地显示它们的语义关系！
 
+<img width="669" alt="image" src="https://github.com/user-attachments/assets/5b0f64ff-a3bb-45ed-8e88-08db25330a2a" />
+
+
 
 通过嵌入，测量相似性就像计算点之间的距离一样简单：
 
