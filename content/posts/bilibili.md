@@ -1,6 +1,6 @@
 ---
 title: "bilibi的产品分析"
-date: 2021-05-21
+date: 2023-01-21
 draft: false
 tags: ["产品设计", "C端", "产品分析"]
 ---
