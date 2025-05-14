@@ -12,7 +12,9 @@ tags: ["AI", "网站开发", "llm"]
 但是因为域名需要备案，太麻烦了，就放弃了····
 
 地址：http://120.27.196.58
+
 GitHub：https://github.com/shangxiuyu/wukong
+
 
 <img width="1048" alt="image" src="https://github.com/user-attachments/assets/0b011752-8eb6-4849-a5e2-5b6c877fbe97" />
 
