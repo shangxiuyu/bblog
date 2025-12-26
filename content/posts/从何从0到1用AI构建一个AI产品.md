@@ -13,7 +13,7 @@ tags: ["从0到1", "AI","AI产品","agent","RAG"]
 本文将复盘我如何从零开始，利用 Cursor、Gemini 等 AI 工具，构建一款具备差异化竞争力的 AI 健康应用。这不仅是一个 Demo 的实现，更是一次关于 多模态感知 + 混合专家 Agent (MoE) 架构的落地实践。
 
 
-# 产品立项
+# 一、产品立项
 
 每个人脑子里都闪过很多点子，有的天马行空，有的似乎触手可及。我习惯从自己和身边人的真实生活里寻找灵感——那些反复出现、未被很好解决的“小麻烦”，往往藏着机会。
 
@@ -55,7 +55,7 @@ tags: ["从0到1", "AI","AI产品","agent","RAG"]
   致力于让健康管理变得轻松、有趣、可持续。
   
 
-  # 二、工具：今天，每个人都可以是“建造者”
+# 二、工具：今天，每个人都可以是“建造者”
 
 很多人对“做一个产品”感到畏惧，觉得一定要会写代码、有团队、拉投资。但今天，开发的门槛已被 AI 极大地降低。我的整个构建过程，几乎没有手写一行代码。
 
@@ -174,6 +174,146 @@ Task 3 (建议类): 结合雨天环境，推荐室内运动方案。
 交互自然化：所有技术架构最终隐藏在背后，用户面对的是一个善解人意、 proactive（主动）的健康伙伴。
 
 环境感知：在推荐运动时，系统会校验天气数据。“雨天不能跑步”不再是死板的规则，而是 AI 给出“推荐做 20 分钟 HIIT”的温情建议。
+
+---
+
+在我实际体验了这种多agent架构体系后，发现一个比较严重的问题——延迟太高了！而且成本与 Token 消耗激增，不太适合快速问答的业务场景，需要低延迟的架构体系
+
+所以，采用了新的AI架构「轻量 Router + 单 Agent ReAct」
+
+<img width="1176" height="890" alt="image" src="https://github.com/user-attachments/assets/636e596e-ce1c-4f1c-8efd-c2b8e4bfae42" />
+
+
+**1、架构说明**
+
+
+ **1.1、路由层 (大脑的守门人)**
+ 
+模型: qwen-turbo (速度优化)
+
+逻辑: 分析用户输入和历史记录，将意图分类为：
+
+SIMPLE (简单): 问候、天气查询、单一事实问答。 -> 快速通道 (Fast Path)
+
+COMPLEX (复杂): 规划、饮食建议、多步推理。 -> 慢速通道 (Slow Path)
+
+目的: 将流量导向合适的模型，以节省成本并降低延迟。
+
+**1.2、编排层 (统一智能体)**
+
+模型: 根据路由决策动态切换 (qwen-turbo 或 qwen-plus)。
+
+框架: LangChain AgentExecutor 配合 create_tool_calling_agent。
+
+功能: 维护对话状态（显存）、理解复杂指令，并编排各种“工人”（工具）的执行。
+
+人设系统: 动态加载系统提示词（如“严厉教练”、“温柔姐姐”、“大白菜吉祥物”），在不改变核心逻辑的情况下调整语气。
+
+**1.3、工人层 (工具集)**
+
+“工人”是执行特定任务的专用工具。编排器agent根据需要调用它们。
+
+
+| 类别   | 工具名称                  | 描述                                     | 动力来源                        |
+|--------|--------------------------|----------------------------------------|--------------------------------|
+| 知识   | search_health_knowledge  | 检索增强生成 (RAG) 以查找事实。         | Dify / 向量数据库              |
+| 知识   | search_recipes           | 实时食谱网页爬虫。                      | 下厨房解析器 (RecipeService)   |
+| 计算   | calculate_exercise_calories | 基于 METs 的精确卡路里消耗计算。        | ExerciseCalculator             |
+| 计算   | estimate_diet_calories   | 基于 LLM 的非结构化食物热量估算。        | LLM (One-shot)                 |
+| 记忆   | get_user_context_summary  | 聚合用户档案、目标和历史记录。           | Postgres (关系型数据)          |
+| 记忆   | remember_fact            | 存储长期用户事实/偏好。                  | Postgres (记忆存储)            |
+| 记忆   | forget_fact              | 删除过时或错误的记忆。                    | Postgres                       |
+| 行动   | add_activity_log         | 记录饮食/运动到每日日志。                | CRUD                           |
+| 行动   | assign_daily_todos       | 创建可执行的待办事项。                    | CRUD                           |
+| 行动   | get_today_todos          | 查询今日待办列表。                        | CRUD                           |
+| 行动   | update_todo              | 更新待办状态或内容。                      | CRUD                           |
+| 环境   | check_weather            | 获取实时天气以提供户外建议。             | 天气 API                        |
+| 视觉   | analyze_food_image       | 分析上传的食物照片以获取名称/热量。       | qwen-vl-plus (视觉模型)        |
+| 知识库 | save_user_document       | 保存用户的重要结构化文档。               | Postgres (用户文档表)          |
+
+
+**2. 关键工作流**
+
+**2.1 聊天循环 (Chat Loop)**
+
+输入: 用户输入文本或图片。
+
+视觉 (可选): 如果包含图片，qwen-vl-plus 分析图片，提取“食物名称 + 重量”。
+
+路由: qwen-turbo 判定是简单对话还是复杂任务。
+
+编排: 启动并运行相应的智能体。
+
+执行:
+
+- 智能体思考：“我首先需要用户上下文。” -> 调用 get_user_context_summary。
+- 智能体思考：“现在我需要计算热量。” -> 调用 estimate_diet_calories
+- 智能体思考：“现在我可以回答了。” -> 生成最终回复。
+
+**2.2 目标分析**
+
+主要聊天循环之外的独立服务。
+
+触发: 用户设定新的健康目标（例如，“1个月瘦10斤”）。
+
+逻辑: 使用 qwen-plus 根据医学标准（如每周最多减重1公斤）对目标进行合理性检查。
+
+输出: 生成结构化计划（饮食 + 运动建议）+ 初始待办事项。
+
+**2.3 后台规划** 
+
+作为每日定时任务/后台作业运行。
+
+输入: 用户档案 + 天气预报 + 长期记忆。
+
+逻辑: “鉴于今天下雨且用户膝盖不好，他们应该做什么？”
+
+输出: 3-5 条具体、可执行的待办事项（例如，“室内瑜伽”，“吃燕麦”）。
+
+
+这是agent一个核心的工作模式：Re Act——一边思考一边行动（思考-行动-观察）
+
+通过**prompt**+ **function call（tool use）** + **代码逻辑（Driver Loop）** 实现
+
+- 提示词层 (The Protocol) - "告诉模型有什么工具"
+  
+并没有在 System Prompt 里手写 "Please use format: Thought... Action..." 这种复杂的格式指令（这是早期的做法）。 相反，主要做了工具定义。
+
+实现原理： 当调用 LLM API 时，LangChain 会自动把这些 Python 函数转换成一个 JSON Schema 描述，并通过 API 的 tools参数传给 Qwen 模型。就像这样告诉型：
+
+"你可以调用一个叫 
+calculate_exercise_calories
+ 的函数，它需要参数 duration (int) 和 type (string)。"
+
+ 
+2. 模型层 (The Brain) - "原生支持"
+   
+现代模型（如 Qwen-Plus, GPT-4）经过了专门的 Fine-tuning (微调)。 当它们接收到 tools
+ 参数后，如果不单纯回答问题，而是认为需要使用工具，它们不会输出普通的文本。
+
+它们会输出一个特殊的数据结构（API 响应中的 tool_calls 字段），而不是普通的 content。
+
+普通回复：content: "你好"
+ReAct 触发：content: null, tool_calls: [{name: "calculate_exercise_calories", args: "..."}]
+
+这比纯提示词控制要稳定得多，因为它是由模型底层的训练数据保证的。
+
+3. 代码层 (The Loop) - "跑腿的执行者"
+
+在一个 while 循环 里运行：
+
+- 发请求：把用户的话 + 工具定义发给 LLM。
+- 检测：LLM 返回了单纯的文本？还是返回了 tool_calls 指令？
+- 拦截：如果是 tool_calls，代码拦截下来，不显示给用户。
+- 执行：代码在本地找到对应的 Python 函数（如 calculate_exercise_calories），真正运行它。
+- 反馈：把函数的运行结果（如 "200千卡"）封装成一个特殊的 ToolMessage，喂回 给 LLM。
+  
+这一步至关重要，让 LLM 觉得它刚刚“看到了”结果。
+
+循环：LLM 拿到结果后，再次思考，直到它决定不再调用工具，而是输出最终文本。
+
+<img width="808" height="1368" alt="image" src="https://github.com/user-attachments/assets/5cbe3655-c5eb-430d-9112-cda13f76fb93" />
+
 
 
 
