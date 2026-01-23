@@ -1,6 +1,6 @@
 ---
 title: "agent skill"
-date: 2026-1-13
+date: 2026-01-13
 draft: false
 tags: ["AI", "AI skill"]
 ---
