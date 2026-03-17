@@ -1,6 +1,6 @@
 ---
 title: "AI企业服务"
-date: 2026-2-23
+date: 2026-02-23
 draft: false
 tags: ["AI", "AI应用"]
 ---
